@@ -3,7 +3,7 @@ pygame.init()
 
 x = 400
 y = 300
-velocidade = 5
+velocidade = 10
 
 largura = 800
 altura = 600
