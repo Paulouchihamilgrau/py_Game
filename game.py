@@ -1,12 +1,21 @@
 import pygame
+from pygame.locals import *
+from sys import exit
+from random import randint
+
 pygame.init()
+
+musica_de_fundo= pygame.mixer.music.load('musica_legal_mp3.wav')
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1)
 
 x = 400
 y = 300
-velocidade = 10
+velocidade = 20
 
 largura = 800
 altura = 600
+
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption("Meu Jogo")
 
@@ -28,10 +37,13 @@ while executando:
     if comandos[pygame.K_LEFT]:
             x-= velocidade
 
-    tela.fill((0, 0, 0))
+    tela.fill((255, 255, 255))
 
     
-    pygame.draw.circle(tela,(0,255,0),(x,y),50)
-    pygame.display.update()
+    ret_verde = pygame.draw.rect(tela,(0,255,0),(x,y,40,50))
+    ret_vermelho =  pygame.draw.rect(tela,(255,0,0),(200,300,40,50) )
+
+    pygame.display.flip()
+
 
 pygame.quit()
